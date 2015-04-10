@@ -5,7 +5,10 @@ public class AbstractBlock : MonoBehaviour
 {
 	public int level;
 	public int health;
+	public BlockTypes blockType;
+
 	Color defaultColor = Color.white;
+
 
 	// Use this for initialization
 	void Start ()
@@ -26,11 +29,10 @@ public class AbstractBlock : MonoBehaviour
 	{
 		gameObject.GetComponent<Renderer> ().material.color = newColor;
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
 	{
-	
+		// do nothing
 	}
 }
 

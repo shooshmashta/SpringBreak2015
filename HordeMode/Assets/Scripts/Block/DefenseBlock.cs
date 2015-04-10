@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class DefenseBlock : MonoBehaviour
+public class DefenseBlock : AbstractBlock
 {
 
 	// Use this for initialization
 	void Start ()
 	{
-	
+		level = 1;
+		health = level * 2;
 	}
 	
 	// Update is called once per frame

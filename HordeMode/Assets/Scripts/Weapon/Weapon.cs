@@ -4,15 +4,30 @@ using System.Collections;
 public class Weapon
 {
 	int range;
-	int fireRate;
 	int damage;
-	int numberOfShotsPerVolley;
+	int shotsPerVolley;
+	float maxFireRateIntervalSeconds;
+	float currentFireRateIntervalSeconds;
 	
-	public Weapon (int range, int damage, int fireRate, int numberOfShotsPerVolley)
+	public Weapon (int range, int damage, float maxFireRateIntervalSeconds, int shotsPerVolley)
 	{
 		this.range = range;
-		this.fireRate = fireRate;
 		this.damage = damage;
-		this.numberOfShotsPerVolley = numberOfShotsPerVolley;
+		this.shotsPerVolley = shotsPerVolley;
+
+		this.maxFireRateIntervalSeconds = maxFireRateIntervalSeconds;
+		this.currentFireRateIntervalSeconds = maxFireRateIntervalSeconds;
+	}
+
+	public bool isReadyToFire ()
+	{
+		if (currentFireRateIntervalSeconds > 0.0f) {
+			currentFireRateIntervalSeconds -= Time.deltaTime;
+			return false;
+		}
+
+		currentFireRateIntervalSeconds = maxFireRateIntervalSeconds;
+		return true;
+
 	}
 }
