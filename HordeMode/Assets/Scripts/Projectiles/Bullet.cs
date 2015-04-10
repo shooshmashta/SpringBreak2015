@@ -3,15 +3,13 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
-
 	private float speed = 7f;
-	public GameObject Owner = null;
 
 	// Use this for initialization
 	void Start ()
 	{
 		Destroy (gameObject, 4);
-		//gameObject.tag = "Bullet";
+
 	}
 
 	// Update is called once per frame

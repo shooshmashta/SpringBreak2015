@@ -50,7 +50,7 @@ public class OffenseBlock : AbstractBlock
 			
 		}
 
-		if (weapon.range > closestEnemyDistance) {
+		if (weapon.range < closestEnemyDistance) {
 			return null;
 		}
 

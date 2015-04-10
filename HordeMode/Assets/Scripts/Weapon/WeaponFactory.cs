@@ -15,7 +15,7 @@ public static class WeaponFactory
 		case BlockTypes.Regular:
 			int fireRate = level;
 			int damage = 1 + level / 2;
-			int range = 3;
+			int range = 30;
 			weapon = new Weapon (range, damage, fireRate, 1);
 			break;
 		default:

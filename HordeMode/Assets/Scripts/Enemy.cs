@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
-    private float health = 100;
+    private float health = 3;
 
     public float movementSpeed;
     public float jumpSpeed;
@@ -28,15 +28,15 @@ public class Enemy : MonoBehaviour {
 	}
     void OnCollisionEnter(Collision _other)
     {
-        if(_other.gameObject.name == "Bullet")
+        if(_other.gameObject.tag == "Bullet")
+        {
+			health--;
+        }
+        else if (_other.gameObject.tag == "Spray")
         {
 
         }
-        else if (_other.gameObject.name == "Spray")
-        {
-
-        }
-        else if (_other.gameObject.name == "Chill")
+        else if (_other.gameObject.tag == "Chill")
         {
 
         }
