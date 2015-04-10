@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Weapon
 {
-	int range;
+	public int range;
 	int damage;
 	int shotsPerVolley;
 	float maxFireRateIntervalSeconds;

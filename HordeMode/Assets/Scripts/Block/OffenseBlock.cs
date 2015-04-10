@@ -25,8 +25,13 @@ public class OffenseBlock : AbstractBlock
 	void Fire ()
 	{
 		GameObject enemy = findClosestEnemy ();
+		if (enemy == null) {
+			return;
+		}
+
 		Vector3 shotDirection = (enemy.transform.position - transform.position).normalized;
-		Instantiate (bullet, transform.position, Quaternion.LookRotation (shotDirection));
+		Vector3 shotStart = new Vector3 (transform.position.x + 1.0f, transform.position.y, 0);
+		Instantiate (bullet, shotStart, Quaternion.LookRotation (shotDirection));
 	}
 
 	GameObject findClosestEnemy ()
@@ -44,6 +49,11 @@ public class OffenseBlock : AbstractBlock
 			}
 			
 		}
+
+		if (weapon.range > closestEnemyDistance) {
+			return null;
+		}
+
 		return closestEnemy;
 	}
 }
