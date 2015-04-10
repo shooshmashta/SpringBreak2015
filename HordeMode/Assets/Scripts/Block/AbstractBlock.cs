@@ -7,7 +7,7 @@ public class AbstractBlock : MonoBehaviour
 	public int health;
 	public BlockTypes blockType;
 
-	Color defaultColor = Color.white;
+	Color defaultColor = Color.black;
 
 
 	// Use this for initialization

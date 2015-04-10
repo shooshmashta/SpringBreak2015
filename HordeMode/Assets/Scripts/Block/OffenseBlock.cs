@@ -3,6 +3,7 @@ using System.Collections;
 
 public class OffenseBlock : AbstractBlock
 {
+	public GameObject bullet;
 	Weapon weapon;
 
 	// Use this for initialization
@@ -23,7 +24,27 @@ public class OffenseBlock : AbstractBlock
 
 	void Fire ()
 	{
+		GameObject enemy = findClosestEnemy ();
+		Vector3 shotDirection = (enemy.transform.position - transform.position).normalized;
+		Instantiate (bullet, transform.position, Quaternion.LookRotation (shotDirection));
+	}
 
+	GameObject findClosestEnemy ()
+	{
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		GameObject closestEnemy = null;
+		float closestEnemyDistance = Mathf.Infinity;
+		
+		foreach (GameObject enemy in enemies) {
+			Vector3 enemyPos = enemy.transform.position;
+			float enemyDistance = (enemyPos - transform.position).sqrMagnitude;
+			if (enemyDistance < closestEnemyDistance) {
+				closestEnemy = enemy;
+				closestEnemyDistance = enemyDistance;
+			}
+			
+		}
+		return closestEnemy;
 	}
 }
 
