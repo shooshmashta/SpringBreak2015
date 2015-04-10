@@ -10,7 +10,7 @@ public static class WeaponFactory
 
 		switch (blockType) {
 		case BlockTypes.Wall:
-			Debug.LogError("ERROR: cannot create weapon for the wall blocktype", blockType);
+			Debug.LogError("ERROR: cannot create weapon for the wall blocktype");
 			break;
 		case BlockTypes.Regular:
 			int fireRate = level;
@@ -19,7 +19,7 @@ public static class WeaponFactory
 			weapon = new Weapon (range, damage, fireRate, 1);
 			break;
 		default:
-			Debug.LogError("ERROR: blockType is undefined", blockType);
+			Debug.LogError("ERROR: blockType is undefined");
 			break;
 		}
 		return weapon;
